@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Material Dashboard</title>
+    <!--     Fonts and icons     -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"
+    />
+    <!-- Nucleo Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/42d5adcbca.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <!-- CSS Files -->
+
+    {% load static %}
+        
+  </head>
+  <style>
+    .img-logo {
+      width: 40px;
+      height: 40px;
+    }
+    .contain{
+        background-image: url("{% static 'user_app/Background.jpg' %}");
+        background-color: #cccccc;
+        /* Used if the image is unavailable */
+        height: 100vh;
+        /* You must set a specified height */
+        background-position: center;
+        /* Center the image */
+        background-repeat: no-repeat;
+        /* Do not repeat the image */
+        background-size: cover;
+        /* Resize the background image to cover the entire container */
+    }
+    
+  </style>
+
+  <body>
+    {% for message in messages %}
+
+    <div
+      class="alert alert-{{ message.tags }} alert-dismissible fade show m-0"
+      role="alert"
+    >
+      <strong>Message : </strong> {{ message }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+
+    {% endfor %}
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0">
+      <div class="container-fluid">
+        <a class="navbar-brand text-light fs-3 fw-semibold ms-2" href="#">
+          <img src="{% static 'user_app/logo.png' %}" class="img-logo" />
+          Categories</a
+        >
+
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse text-center justify-content-end"
+          id="navbar"
+        >
+          <div class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-light fs-5 fw-normal"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Welcome {{ request.session.member.first_name }}
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end text-center p-0 m-0">
+                <li>
+                  <a
+                    class="nav-link text-dark fw-semibold btn btn-outline-primary"
+                    href="/user_app/logout"
+                  >
+                    Logout
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="nav-link text-dark fw-semibold btn btn-outline-primary"
+                    href="/user_app/change_password"
+                  >
+                    Change Password
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <div class="contain m-0">
+
+    <div class="my-md-2 ps-md-3">
+        <div class="me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+          <div class="my-3 py-3">
+            <h1 class="display-5 fw-bold">Developed By</h1>
+            <a href="#" class="lead fw-bold fs-3">Jayant Sharma</a>
+          </div>
+          <img class="bg-opacity-75 bg-light shadow-sm mx-auto" style="width: 60%; height: 500px; border-radius: 21px 21px 0 0; object-fit: contain;" src="{% static 'user_app\logo.png' %}"></img>
+        </div>
+      </div>
+
+    </div>
+
+    <!--   Core JS Files   -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+
+  </body>
+</html>
